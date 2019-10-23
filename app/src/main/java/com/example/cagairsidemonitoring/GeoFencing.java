@@ -7,7 +7,10 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApi;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
@@ -34,9 +37,6 @@ public class GeoFencing extends FragmentActivity implements OnMapReadyCallback {
     private static int FASTEST_INTERVAL = 3000;
     private static int DISPLACEMENT = 10;
 
-    public GeoFencing() {
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,16 +54,39 @@ public class GeoFencing extends FragmentActivity implements OnMapReadyCallback {
         if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
         {
-                    //Request runtime permission
-                    ActivityCompat.requestPermissions(this, new String [](
-                            Manifest.permission.ACCESS_COARSE_LOCATION,
-                            Manifest.permission.ACCESS_FINE_LOCATION
-                    ), MY_PERMISSION_REQUEST_CODE;
-
-
-
+            //Request runtime permission
+            ActivityCompat.requestPermissions(this, new String[]{
+                    Manifest.permission.ACCESS_COARSE_LOCATION,
+                    Manifest.permission.ACCESS_FINE_LOCATION
+            },MY_PERMISSION_REQUEST_CODE);
         }
+
+        else
+        {
+            if(checkPlayServices())
+            {
+
+            }
+        }
+
     }
+
+    private boolean checkPlayServices() {
+        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if(resultCode != ConnectionResult.SUCCESS)
+        {
+            if(GooglePlayServicesUtil.isUserRecoverableError(resultCode))
+                GooglePlayServicesUtil.getErrorDialog(resultCode,this,PLAY_SERVICES_RESOLUTION_REQUEST).show();
+            else
+            {
+                Toast.makeText(this, "This device is not supported", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        }
+
+    }
+
+
 
 
     @Override
@@ -77,4 +100,3 @@ public class GeoFencing extends FragmentActivity implements OnMapReadyCallback {
     }
 }
 
-//test
