@@ -32,7 +32,7 @@ dependencies {
     implementation 'com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:0.7.2'
 
 
-    implementation 'com.firebase:geofire-android:2.1.2' //geofencing
+    implementation 'com.firebase:geofire-android:2.1.2' //geofencing2
     implementation 'com.google.firebase:firebase-analytics:17.2.0'
     implementation 'com.google.firebase:firebase-auth:19.1.0'
     implementation 'com.google.firebase:firebase-database:19.2.0'

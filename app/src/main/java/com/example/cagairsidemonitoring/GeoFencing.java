@@ -45,3 +45,5 @@ public class GeoFencing extends FragmentActivity implements OnMapReadyCallback {
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }
+
+//test
