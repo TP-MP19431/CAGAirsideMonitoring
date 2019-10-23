@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "45893226149",
+    "firebase_url": "https://cag-airside-monitoring.firebaseio.com",
+    "project_id": "cag-airside-monitoring",
+    "storage_bucket": "cag-airside-monitoring.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45893226149:android:a7d088455024baab9f874c",
+        "android_client_info": {
+          "package_name": "com.example.cagairsidemonitoring"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "45893226149-s997e5uv22i9ti3rece0gssne895dn9a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZZPuZUPbYiHG31pqJbKbyRQoQx03FErM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "45893226149-s997e5uv22i9ti3rece0gssne895dn9a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
