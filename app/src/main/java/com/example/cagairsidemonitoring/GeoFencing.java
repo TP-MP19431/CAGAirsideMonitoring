@@ -53,16 +53,16 @@ public class GeoFencing extends FragmentActivity implements OnMapReadyCallback {
     private void setUpLocation(){
         if(ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION)!= PackageManager.PERMISSION_GRANTED &&
                 ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION)!= PackageManager.PERMISSION_GRANTED)
-            (
+        {
                     //Request runtime permission
                     ActivityCompat.requestPermissions(this, new String [](
                             Manifest.permission.ACCESS_COARSE_LOCATION,
                             Manifest.permission.ACCESS_FINE_LOCATION
                     ), MY_PERMISSION_REQUEST_CODE;
 
-                ))
-                    )
 
+
+        }
     }
 
 

@@ -35,7 +35,7 @@
         app:layout_constraintVertical_bias="0.084" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnGeo"
         android:layout_width="218dp"
         android:layout_height="104dp"
         android:text="RETRIEVE FLIGHT DETAILS"
