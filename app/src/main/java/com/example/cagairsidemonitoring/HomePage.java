@@ -21,7 +21,7 @@ public class HomePage extends AppCompatActivity {
         FlightInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (HomePage.this, FlightInfo.class);
+                Intent intent = new Intent (HomePage.this, FlightRecyclerView.class);
                 startActivity(intent);
 
             }
@@ -36,7 +36,7 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        /*Creation = (Button)findViewById(R.id.btnCreation);
+        Creation = (Button)findViewById(R.id.btnCreation);
         Creation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,7 +44,7 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-*/
+
 
         }
     }

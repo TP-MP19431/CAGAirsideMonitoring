@@ -13,6 +13,7 @@
         android:ems="10"
         android:hint="Company E-mail"
         android:inputType="textPersonName"
+        android:shadowRadius="100"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

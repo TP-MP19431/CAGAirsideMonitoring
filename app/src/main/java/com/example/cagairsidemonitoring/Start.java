@@ -16,14 +16,7 @@ public class Start extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
 
-        Geo = (Button)findViewById(R.id.btnGeo);
-        Geo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent (Start.this, GeoFencing.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
 
