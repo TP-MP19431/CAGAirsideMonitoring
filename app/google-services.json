@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "45893226149-4cmida98ar61o5mja4jf0d4ccpg9ila1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cagairsidemonitoring",
+            "certificate_hash": "887b74479da85cb8b36d6c4a3ae50e8ff6b5d54e"
+          }
+        },
+        {
           "client_id": "45893226149-s997e5uv22i9ti3rece0gssne895dn9a.apps.googleusercontent.com",
           "client_type": 3
         }

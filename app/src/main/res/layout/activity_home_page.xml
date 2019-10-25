@@ -43,8 +43,20 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.511"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnFlightInfo"
-        app:layout_constraintVertical_bias="0.095" />
+        app:layout_constraintVertical_bias="0.141" />
+
+    <Button
+        android:id="@+id/btnCreation"
+        android:layout_width="283dp"
+        android:layout_height="133dp"
+        android:text="Create Remote Bay Flight Entry (only for CAG users)"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
 </androidx.constraintlayout.widget.ConstraintLayout>

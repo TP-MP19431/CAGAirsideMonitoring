@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class HomePage extends AppCompatActivity {
 
-    private Button FlightInfo, Start;
+    private Button FlightInfo, Start, Creation;
 
 
     @Override
@@ -35,6 +35,17 @@ public class HomePage extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        /*Creation = (Button)findViewById(R.id.btnCreation);
+        Creation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (HomePage.this, CreateFlight.class);
+                startActivity(intent);
+            }
+        });
+*/
+
+        }
     }
 
-}
