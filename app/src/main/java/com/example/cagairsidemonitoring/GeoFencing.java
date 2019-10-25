@@ -12,6 +12,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.firebase.geofire.GeoFire;
+import com.firebase.geofire.GeoLocation;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -23,7 +25,11 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class GeoFencing extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -45,6 +51,11 @@ public class GeoFencing extends FragmentActivity implements OnMapReadyCallback,
     private static int FASTEST_INTERVAL = 3000;
     private static int DISPLACEMENT = 10;
 
+    DatabaseReference ref;
+    GeoFire geoFire;
+
+    Marker mCurrent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +66,12 @@ public class GeoFencing extends FragmentActivity implements OnMapReadyCallback,
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        ref = FirebaseDatabase.getInstance().getReference("MyLocation");
+        geoFire = new GeoFire(ref);
+
         setUpLocation();
     }
 
-    //Press
 
 
     @Override
@@ -105,12 +118,29 @@ public class GeoFencing extends FragmentActivity implements OnMapReadyCallback,
         }
         mLastLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
         if (mLastLocation != null) {
-            double latitude = mLastLocation.getLatitude();
-            double longitude = mLastLocation.getLongitude();
+            final double latitude = mLastLocation.getLatitude();
+            final double longitude = mLastLocation.getLongitude();
 
-            Log.d("EDMTDEV", String.format("Your location was changed : %f / %f", latitude, longitude));
+            //Update to Firebase
+            geoFire.setLocation("You", new GeoLocation(latitude, longitude),
+                    new GeoFire.CompletionListener() {
+                        @Override
+                        public void onComplete(String key, DatabaseError error) {
+                            //Add Marker
+                            if(mCurrent != null)
+                                mCurrent.remove(); // remove old marker
+                            mCurrent = mMap.addMarker(new MarkerOptions()
+                                                .position(new LatLng(latitude,longitude))
+                                                .title("You"));
+                            //Move Camera to this position
+                            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude), 12.0f));
+                        }
+                    });
+
+
+                    Log.d("EDMTDEV", String.format("Your location was changed : %f / %f", latitude, longitude));
         } else
-            Log.d("EDMTDEV", "Can not get your location");
+            Log.d("EDMTDEV", "Cannot get your location");
 
     }
 
@@ -153,10 +183,6 @@ public class GeoFencing extends FragmentActivity implements OnMapReadyCallback,
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
 
