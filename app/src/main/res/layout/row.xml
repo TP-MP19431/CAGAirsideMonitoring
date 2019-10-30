@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#212121"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="#424242"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="239dp"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvFlight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Flight"
+            android:textColor="#FFFFFF"
+            android:textSize="36dp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvEta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvFlight"
+            android:text="ETA"
+            android:textColor="#FF3F80"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvBay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvEta"
+            android:text="Bay"
+            android:textColor="#FFFFFF"
+            android:textSize="28dp" />
+
+        <TextView
+            android:id="@+id/tvType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvEta"
+            android:layout_marginTop="39dp"
+            android:text="Type"
+            android:textColor="#FFFFFF"
+            android:textSize="28dp" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
