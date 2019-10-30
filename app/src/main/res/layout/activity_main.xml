@@ -4,68 +4,99 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/login"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <EditText
         android:id="@+id/etStaff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputEditText.OutlinedBox.Dense"
+        android:layout_width="305dp"
+        android:layout_height="57dp"
         android:ems="10"
+        android:hapticFeedbackEnabled="true"
         android:hint="Company E-mail"
         android:inputType="textPersonName"
-        android:shadowRadius="100"
+        android:shadowColor="#BFE7E4E4"
+        android:singleLine="false"
+        android:textAllCaps="false"
+        android:textColor="#BFE7E4E4"
+        android:textColorHint="#BFE7E4E4"
+        android:textIsSelectable="false"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.367"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.265" />
+        app:layout_constraintVertical_bias="0.613" />
 
     <EditText
         android:id="@+id/etPIN"
-        android:layout_width="287dp"
-        android:layout_height="75dp"
+        android:layout_width="136dp"
+        android:layout_height="64dp"
         android:ems="10"
         android:hint="PIN"
         android:inputType="textPassword"
+        android:textColor="#BFE7E4E4"
+        android:textColorHint="#BFE7E4E4"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.145"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etStaff"
-        app:layout_constraintVertical_bias="0.07" />
+        app:layout_constraintVertical_bias="0.129" />
 
     <Button
         android:id="@+id/btnEnter"
-        android:layout_width="282dp"
-        android:layout_height="55dp"
+        android:layout_width="137dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="32dp"
+        android:background="#D81B60"
+        android:hapticFeedbackEnabled="true"
         android:text="ENTER"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPIN"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tvInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Number of attempts remaining: "
-        android:textSize="18sp"
+        android:id="@+id/textView2"
+        android:layout_width="332dp"
+        android:layout_height="81dp"
+        android:text="Welcome to CAG Airside Monitoring Application"
+        android:textColor="#BFE7E4E4"
+        android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/etStaff"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEnter" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.141" />
 
 
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="171dp"
+        android:layout_height="60dp"
+        android:text="TextView"
+        android:textColor="#BFE7E4E4"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/etStaff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.19" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

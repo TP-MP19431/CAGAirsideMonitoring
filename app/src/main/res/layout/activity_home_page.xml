@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomePage">
+    tools:context=".HomePage"
+    android:background="#212121">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="294dp"
         android:layout_height="82dp"
-        android:text="Welcome! Select a function to continue:"
+        android:text="Select a function below to continue:"
         android:textSize="30sp"
         android:textStyle="bold"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.572"
@@ -27,6 +29,8 @@
         android:text="View Flight Information"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#424242"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
@@ -41,6 +45,8 @@
         android:text="Start / Input Flight Assignment"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#424242"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -55,8 +61,12 @@
         android:text="Create Remote Bay Flight Entry (only for CAG users)"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:background="#424242"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStart" />
+        app:layout_constraintTop_toBottomOf="@+id/btnStart"
+        app:layout_constraintVertical_bias="0.229" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -66,7 +66,7 @@ public class CreateFlight extends AppCompatActivity {
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(CreateFlight.this, "Error", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CreateFlight.this, "No permission to modify flight entries. Please contact system administrator.", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, e.toString());
 
                     }
