@@ -26,8 +26,9 @@ public class CreateFlight extends AppCompatActivity {
     private static final String KEY_FLIGHT = "FlightNo";
     private static final String KEY_BAY = "Bay";
     private static final String KEY_ETA = "mETA";
+    private static final String KEY_TYPE = "mType";
 
-    private EditText FlightNo, Bay, ETA;
+    private EditText FlightNo, Bay, ETA, acType;
     private Button Create;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -39,6 +40,7 @@ public class CreateFlight extends AppCompatActivity {
 
         FlightNo = (EditText) findViewById(R.id.etFlightNo);
         Bay = (EditText) findViewById(R.id.etBay);
+        acType = (EditText) findViewById(R.id.etType);
         ETA = (EditText) findViewById(R.id.etETA);
         Create = (Button)findViewById(R.id.btnCreation);
 
@@ -48,12 +50,14 @@ public class CreateFlight extends AppCompatActivity {
 
         String FlightNum = FlightNo.getText().toString();
         String BayNum = Bay.getText().toString();
+        String mType = acType.getText().toString();
         String mETA = ETA.getText().toString();
 
         Map<String, Object> flightEntry = new HashMap<>();
         flightEntry.put(KEY_FLIGHT, FlightNum);
         flightEntry.put(KEY_BAY, BayNum);
         flightEntry.put(KEY_ETA, mETA);
+        flightEntry.put(KEY_TYPE, mType);
 
 
         db.collection("Flight Entry").document().set(flightEntry)

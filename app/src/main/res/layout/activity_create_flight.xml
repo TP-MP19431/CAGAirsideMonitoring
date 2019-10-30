@@ -46,10 +46,23 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFlightNo"
-        app:layout_constraintVertical_bias="0.041" />
+        app:layout_constraintVertical_bias="0.064" />
+
+    <EditText
+        android:id="@+id/etType"
+        android:layout_width="313dp"
+        android:layout_height="52dp"
+        android:ems="10"
+        android:hint="Aircraft Type (e.g. B744)"
+        android:inputType="textPersonName"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBay"
+        app:layout_constraintVertical_bias="0.092" />
 
     <EditText
         android:id="@+id/etETA"
@@ -61,19 +74,19 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.36"
+        app:layout_constraintHorizontal_bias="0.351"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etBay"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintTop_toBottomOf="@+id/etType"
+        app:layout_constraintVertical_bias="0.161" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="235dp"
         android:layout_height="95dp"
+        android:onClick="saveFlight"
         android:text="Send Flight Details!"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:onClick="saveFlight"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
