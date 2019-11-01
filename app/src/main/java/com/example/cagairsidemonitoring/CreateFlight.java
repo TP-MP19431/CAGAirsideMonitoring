@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -29,7 +30,7 @@ public class CreateFlight extends AppCompatActivity {
     private static final String KEY_TYPE = "mType";
 
     private EditText FlightNo, Bay, ETA, acType;
-    private Button Create;
+    private Button Create, Update;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
@@ -43,7 +44,15 @@ public class CreateFlight extends AppCompatActivity {
         acType = (EditText) findViewById(R.id.etType);
         ETA = (EditText) findViewById(R.id.etETA);
         Create = (Button)findViewById(R.id.btnCreation);
+        Update = (Button)findViewById(R.id.btncUpdate);
 
+        Update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (CreateFlight.this, updateFlight.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void saveFlight(View v){
