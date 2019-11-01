@@ -44,7 +44,7 @@ public class updateFlight extends AppCompatActivity {
 
             private void updateDocument(String flight, String eta) {
 
-                DocumentReference documentReference = mDatabase.collection("Flight Entry").document("KaiaKspKBHo0NaXGrZmN");
+                DocumentReference documentReference = mDatabase.collection("Flight Entry").document("B8UUt0Xn1cmSOtjL7cwV");
                 documentReference.update("FlightNo", flight);
                 documentReference.update("mETA",eta)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
