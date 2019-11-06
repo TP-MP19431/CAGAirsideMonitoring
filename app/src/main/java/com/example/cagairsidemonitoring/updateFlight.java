@@ -12,9 +12,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
+import org.w3c.dom.Document;
 
 public class updateFlight extends AppCompatActivity {
 
@@ -44,7 +47,11 @@ public class updateFlight extends AppCompatActivity {
 
             private void updateDocument(String flight, String eta) {
 
-                DocumentReference documentReference = mDatabase.collection("Flight Entry").document("B8UUt0Xn1cmSOtjL7cwV");
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                //DocumentReference flighrRef = db.collection("Flight Entry")
+
+                DocumentReference documentReference = mDatabase.collection("Flight Entry").document();
                 documentReference.update("FlightNo", flight);
                 documentReference.update("mETA",eta)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {

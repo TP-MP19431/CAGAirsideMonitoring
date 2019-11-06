@@ -74,6 +74,7 @@ public class CreateFlight extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(CreateFlight.this, "Entry for flight is successfully added", Toast.LENGTH_SHORT).show();
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -84,8 +85,6 @@ public class CreateFlight extends AppCompatActivity {
 
                     }
                 });
-
-
 
 
         /*db = FirebaseFirestore.getInstance();

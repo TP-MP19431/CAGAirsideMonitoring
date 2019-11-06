@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -52,9 +53,20 @@ public class FlightRecyclerView extends AppCompatActivity {
 
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-                adapter.deleteItem(viewHolder.getAdapterPosition());
-            }
+                if (direction == ItemTouchHelper.RIGHT) {
+                    adapter.deleteItem(viewHolder.getAdapterPosition());
+                }
+
+                if (direction == ItemTouchHelper.LEFT){
+
+                    
+                    Intent intent = new Intent (FlightRecyclerView.this, updateFlight.class);
+                    startActivity(intent);
+                }
+
+                }
         }).attachToRecyclerView(recyclerView);
+
 
 
 
