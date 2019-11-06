@@ -27,6 +27,10 @@ public class Start extends AppCompatActivity {
             public void onClick(View v) {
                 if(Build.VERSION.SDK_INT >= 26){
                     vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE));
+
+                    Intent intent = new Intent (Start.this, GeoFencing.class);
+                            startActivity(intent);
+
                 } else{
                     vibrator.vibrate(200);
                 }

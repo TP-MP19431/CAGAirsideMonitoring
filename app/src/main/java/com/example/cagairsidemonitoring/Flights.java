@@ -6,6 +6,8 @@ public class Flights {
     private String mETA;
     private String Bay;
     private String mType;
+    private String uid;
+
 
     public Flights(){
 
@@ -14,11 +16,13 @@ public class Flights {
 
 
 
-    public Flights (String FlightNo, String mETA, String Bay, String mType) {
+    public Flights (String FlightNo, String mETA, String Bay, String mType, String uid) {
         this.FlightNo = FlightNo;
         this.mETA = mETA;
         this.mType = mType;
         this.Bay = Bay;
+        this.uid = uid;
+
     }
 
     public String getFlightNo() {
@@ -36,6 +40,7 @@ public class Flights {
     public String getmType() {
         return mType;
     }
+
 
 
 }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -37,6 +38,8 @@ public class updateFlight extends AppCompatActivity {
         update = (Button)findViewById(R.id.btnUpdate);
         mDatabase = FirebaseFirestore.getInstance();
 
+        final String uid = FirebaseAuth.getInstance().getUid();
+
         update.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +54,7 @@ public class updateFlight extends AppCompatActivity {
 
                 //DocumentReference flighrRef = db.collection("Flight Entry")
 
-                DocumentReference documentReference = mDatabase.collection("Flight Entry").document();
+                DocumentReference documentReference = mDatabase.collection("Flight Entry").document("B8UUt0Xn1cmSOtjL7cwV");
                 documentReference.update("FlightNo", flight);
                 documentReference.update("mETA",eta)
                         .addOnSuccessListener(new OnSuccessListener<Void>() {

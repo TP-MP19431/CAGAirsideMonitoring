@@ -31,6 +31,8 @@ public class flightsAdapter extends FirestoreRecyclerAdapter <Flights, flightsAd
         holder.eta.setText("ETA: " + model.getmETA());
         holder.bay.setText("Bay: " + model.getBay());
         holder.acType.setText("A/C Type: " +model.getmType());
+
+        String documentId = getSnapshots().getSnapshot(position).getId();
     }
 
     @NonNull

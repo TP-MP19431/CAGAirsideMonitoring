@@ -1,6 +1,7 @@
 package com.example.cagairsidemonitoring;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,9 +13,14 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class FlightRecyclerView extends AppCompatActivity {
 
@@ -33,6 +39,7 @@ public class FlightRecyclerView extends AppCompatActivity {
     private void setUpRecyclerView() {
 
         Query query = flightRef.orderBy("mETA", Query.Direction.ASCENDING);
+
 
         FirestoreRecyclerOptions<Flights> options = new FirestoreRecyclerOptions.Builder<Flights>()
                 .setQuery(query, Flights.class)
@@ -59,7 +66,8 @@ public class FlightRecyclerView extends AppCompatActivity {
 
                 if (direction == ItemTouchHelper.LEFT){
 
-                    
+                    String uid = FirebaseAuth.getInstance().getUid();
+
                     Intent intent = new Intent (FlightRecyclerView.this, updateFlight.class);
                     startActivity(intent);
                 }
