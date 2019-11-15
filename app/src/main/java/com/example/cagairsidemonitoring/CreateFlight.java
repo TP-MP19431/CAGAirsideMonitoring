@@ -2,8 +2,11 @@ package com.example.cagairsidemonitoring;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 
+import android.app.Notification;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +23,8 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 
+import static com.example.cagairsidemonitoring.App.CHANNEL_1_ID;
+
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
@@ -31,6 +36,8 @@ public class CreateFlight extends AppCompatActivity {
     private static final String KEY_BAY = "Bay";
     private static final String KEY_ETA = "mETA";
     private static final String KEY_TYPE = "mType";
+
+    private NotificationManagerCompat notificationManager;
 
     private EditText FlightNo, Bay, ETA, acType;
     private Button Create, Update;
@@ -46,6 +53,8 @@ public class CreateFlight extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_flight);
+
+        notificationManager = NotificationManagerCompat.from(this);
 
         FlightNo = (EditText) findViewById(R.id.etFlightNo);
         Bay = (EditText) findViewById(R.id.etBay);
@@ -101,6 +110,15 @@ public class CreateFlight extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void aVoid) {
                         Toast.makeText(CreateFlight.this, "Entry for flight is successfully added", Toast.LENGTH_SHORT).show();
+
+                        Notification notification = new NotificationCompat.Builder(CreateFlight.this, CHANNEL_1_ID)
+                                .setSmallIcon(R.drawable.ic_one)
+                                .setContentTitle("Flight details sent")
+                                .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                .build();
+
+                        notificationManager.notify(1, notification);
 
                     }
                 })
