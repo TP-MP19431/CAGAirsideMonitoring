@@ -25,7 +25,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class FlightRecyclerView extends AppCompatActivity {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference flightRef = db.collection("Flight Entry");
+    private CollectionReference flightRef = db.collection("FlightEntry");
     private flightsAdapter adapter;
 
     @Override

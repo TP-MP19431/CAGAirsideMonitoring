@@ -4,12 +4,14 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.view.View;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -18,6 +20,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,6 +35,11 @@ public class CreateFlight extends AppCompatActivity {
     private EditText FlightNo, Bay, ETA, acType;
     private Button Create, Update;
 
+    TimePickerDialog timePickerDialog;
+    Calendar calendar;
+    int currentHour;
+    int currentMinute;
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
@@ -43,6 +51,25 @@ public class CreateFlight extends AppCompatActivity {
         Bay = (EditText) findViewById(R.id.etBay);
         acType = (EditText) findViewById(R.id.etType);
         ETA = (EditText) findViewById(R.id.etETA);
+
+        ETA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                calendar = Calendar.getInstance();
+                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+                currentMinute = calendar.get(Calendar.MINUTE);
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(CreateFlight.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        ETA.setText(String.format("%02d:%02d", hourOfDay, minute));
+                    }
+                }, currentHour, currentMinute, true);
+                timePickerDialog.show();
+            }
+        });
+
         Create = (Button)findViewById(R.id.btnCreation);
         Update = (Button)findViewById(R.id.btncUpdate);
 
@@ -69,7 +96,7 @@ public class CreateFlight extends AppCompatActivity {
         flightEntry.put(KEY_TYPE, mType);
 
 
-        db.collection("Flight Entry").document().set(flightEntry)
+        db.collection("FlightEntry").document().set(flightEntry)
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
