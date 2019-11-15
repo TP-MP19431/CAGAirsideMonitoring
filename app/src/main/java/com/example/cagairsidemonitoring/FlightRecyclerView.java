@@ -30,6 +30,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import static com.example.cagairsidemonitoring.App.CHANNEL_1_ID;
+import static com.example.cagairsidemonitoring.App.CHANNEL_2_ID;
 
 public class FlightRecyclerView extends AppCompatActivity {
 
@@ -113,14 +114,44 @@ public class FlightRecyclerView extends AppCompatActivity {
                     switch(dc.getType()){
                         case ADDED:
                             Toast.makeText(FlightRecyclerView.this, "New flight has been added", Toast.LENGTH_SHORT).show();
+
+                            Notification notification = new NotificationCompat.Builder(FlightRecyclerView.this, CHANNEL_1_ID)
+                                    .setSmallIcon(R.drawable.ic_two)
+                                    .setContentTitle("New Flight")
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+
+                            notificationManager.notify(2, notification);
+
                             break;
 
                         case MODIFIED:
                             Toast.makeText(FlightRecyclerView.this, "A flight has been updated", Toast.LENGTH_SHORT).show();
+
+                            Notification notificationUpdate = new NotificationCompat.Builder(FlightRecyclerView.this, CHANNEL_1_ID)
+                                    .setSmallIcon(R.drawable.ic_two)
+                                    .setContentTitle("Updated Flight")
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+
+                            notificationManager.notify(2, notificationUpdate);
+
                             break;
 
                         case REMOVED:
                             Toast.makeText(FlightRecyclerView.this, "A flight has been deleted", Toast.LENGTH_SHORT).show();
+
+                            Notification notificationDelete = new NotificationCompat.Builder(FlightRecyclerView.this, CHANNEL_1_ID)
+                                    .setSmallIcon(R.drawable.ic_two)
+                                    .setContentTitle("Deleted Flight")
+                                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                                    .setCategory(NotificationCompat.CATEGORY_MESSAGE)
+                                    .build();
+
+                            notificationManager.notify(2, notificationDelete);
+
                             break;
                     }
 
