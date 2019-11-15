@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.firebase.firestore.DocumentChange;
 
 public class flightsAdapter extends FirestoreRecyclerAdapter <Flights, flightsAdapter.flightMyHolder> {
 
@@ -33,6 +34,8 @@ public class flightsAdapter extends FirestoreRecyclerAdapter <Flights, flightsAd
         holder.acType.setText("A/C Type: " +model.getmType());
 
         String documentId = getSnapshots().getSnapshot(position).getId();
+
+
     }
 
     @NonNull
