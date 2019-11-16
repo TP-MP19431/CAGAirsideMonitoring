@@ -107,50 +107,51 @@ public class FlightRecyclerView extends AppCompatActivity {
 
                 for (DocumentChange dc : queryDocumentSnapshots.getDocumentChanges()) {
                     DocumentSnapshot documentSnapshot = dc.getDocument();
-                    String id = documentSnapshot.getId();
-                    int oldIndex = dc.getOldIndex();
-                    int newIndex = dc.getNewIndex();
+                    String flight = documentSnapshot.getString("FlightNo");
+                    String bay = documentSnapshot.getString("Bay");
+                    String eta = documentSnapshot.getString("mETA");
 
                     switch(dc.getType()){
                         case ADDED:
-                            Toast.makeText(FlightRecyclerView.this, "New flight has been added", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(FlightRecyclerView.this, "New flight has been added", Toast.LENGTH_SHORT).show();
 
                             Notification notification = new NotificationCompat.Builder(FlightRecyclerView.this, CHANNEL_1_ID)
-                                    .setSmallIcon(R.drawable.ic_two)
-                                    .setContentTitle("New Flight")
+                                    .setSmallIcon(R.drawable.ic_plane)
+                                    .setContentTitle("New remote bay flight " + flight )
+                                    .setContentText("is arriving at " + eta + " at bay " + bay)
                                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                                     .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                                     .build();
 
-                            notificationManager.notify(2, notification);
+                            notificationManager.notify(1, notification);
 
                             break;
 
                         case MODIFIED:
-                            Toast.makeText(FlightRecyclerView.this, "A flight has been updated", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(FlightRecyclerView.this, "A flight has been updated", Toast.LENGTH_SHORT).show();
 
                             Notification notificationUpdate = new NotificationCompat.Builder(FlightRecyclerView.this, CHANNEL_1_ID)
-                                    .setSmallIcon(R.drawable.ic_two)
-                                    .setContentTitle("Updated Flight")
+                                    .setSmallIcon(R.drawable.ic_plane)
+                                    .setContentTitle("Updated Flight " + flight)
                                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                                     .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                                     .build();
 
-                            notificationManager.notify(2, notificationUpdate);
+                            notificationManager.notify(1, notificationUpdate);
 
                             break;
 
                         case REMOVED:
-                            Toast.makeText(FlightRecyclerView.this, "A flight has been deleted", Toast.LENGTH_SHORT).show();
+                           // Toast.makeText(FlightRecyclerView.this, "A flight has been deleted", Toast.LENGTH_SHORT).show();
 
                             Notification notificationDelete = new NotificationCompat.Builder(FlightRecyclerView.this, CHANNEL_1_ID)
-                                    .setSmallIcon(R.drawable.ic_two)
-                                    .setContentTitle("Deleted Flight")
+                                    .setSmallIcon(R.drawable.ic_delete)
+                                    .setContentTitle("Deleted Flight " + flight)
                                     .setPriority(NotificationCompat.PRIORITY_HIGH)
                                     .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                                     .build();
 
-                            notificationManager.notify(2, notificationDelete);
+                            notificationManager.notify(1, notificationDelete);
 
                             break;
                     }

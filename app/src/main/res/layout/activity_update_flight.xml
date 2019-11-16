@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#212121"
-    tools:context=".updateFlight">
+    tools:context=".updateFlight"
+    tools:layout_editor_absoluteY="81dp">
 
 
     <EditText
@@ -22,7 +23,25 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="137dp"
+        android:layout_height="54dp"
+        android:background="#D81B60"
+        android:hapticFeedbackEnabled="true"
+        android:text="SEARCH!"
+        android:textSize="24sp"
+        android:textStyle="bold"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUflight"
+        app:layout_constraintVertical_bias="0.051" />
 
     <EditText
         android:id="@+id/etUeta"
@@ -38,23 +57,58 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUflight"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch"
+        app:layout_constraintVertical_bias="0.497" />
+
+    <EditText
+        android:id="@+id/etUbay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Revised Bay"
+        android:inputType="textPersonName"
+        android:textColor="#BFE7E4E4"
+        android:textColorHint="#BFE7E4E4"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etUeta"
+        app:layout_constraintVertical_bias="0.172" />
 
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="137dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="44dp"
         android:background="#D81B60"
         android:hapticFeedbackEnabled="true"
         android:text="UPDATE!"
         android:textSize="24sp"
-        android:textStyle="bold"
 
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.233"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etUeta"
-        app:layout_constraintVertical_bias="0.126" />
+        app:layout_constraintTop_toBottomOf="@+id/etUbay"
+        app:layout_constraintVertical_bias="0.929" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="292dp"
+        android:layout_height="153dp"
+        android:text="Current Flight Details"
+        android:textColor="#EF9A9A"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSearch"
+        app:layout_constraintVertical_bias="0.055" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
