@@ -14,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:textAllCaps="true"
         android:hint="Flight No."
         android:inputType="textPersonName"
         android:textColor="#BFE7E4E4"
