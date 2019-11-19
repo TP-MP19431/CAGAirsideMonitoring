@@ -76,12 +76,11 @@ public class updateFlight extends AppCompatActivity {
                                 for (QueryDocumentSnapshot documentSnapshot : queryDocumentSnapshots) {
                                     Flights flights = documentSnapshot.toObject(Flights.class);
 
-                                    String flight = flights.getFlightNo();
-                                    String eta = flights.getmETA();
-                                    String bay = flights.getBay();
-                                    String type = flights.getmType();
+                                    final String flight = flights.getFlightNo();
+                                    final String eta = flights.getmETA();
+                                    final String bay = flights.getBay();
+                                    final String type = flights.getmType();
                                     final String documentId = documentSnapshot.getId();
-
 
                                     //System.out.println(documentId); // ID shown in log
                                     System.out.println(eta);
@@ -113,6 +112,8 @@ public class updateFlight extends AppCompatActivity {
                                                             Toast.makeText(updateFlight.this, "Error. No permission to modify flight details. Please contact system administrator.", Toast.LENGTH_SHORT).show();
                                                         }
                                                     });
+
+                                            flightData.setText("Flight details for " + flight + "\nCurrent Bay: " + bay + "\nCurrent ETA: " + eta + "\n A/C Type: " + type);
                                         }
                                     });
                                 }

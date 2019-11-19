@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#212121"
+
+    android:background="@drawable/untitled"
     tools:context=".updateFlight"
     tools:layout_editor_absoluteY="81dp">
 
@@ -14,18 +15,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:textAllCaps="true"
-        android:hint="Flight No."
+        android:hint="Flight No. (e.g. SQ11)"
         android:inputType="textPersonName"
+        android:textAllCaps="true"
         android:textColor="#BFE7E4E4"
         android:textColorHint="#BFE7E4E4"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintVertical_bias="0.07" />
 
     <Button
         android:id="@+id/btnSearch"
@@ -39,10 +41,10 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUflight"
-        app:layout_constraintVertical_bias="0.051" />
+        app:layout_constraintVertical_bias="0.052" />
 
     <EditText
         android:id="@+id/etUeta"
@@ -57,9 +59,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSearch"
-        app:layout_constraintVertical_bias="0.497" />
+        app:layout_constraintVertical_bias="0.493" />
 
     <EditText
         android:id="@+id/etUbay"
@@ -74,9 +77,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.187"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUeta"
-        app:layout_constraintVertical_bias="0.172" />
+        app:layout_constraintVertical_bias="0.171" />
 
     <Button
         android:id="@+id/btnUpdate"
@@ -87,29 +91,29 @@
         android:hapticFeedbackEnabled="true"
         android:text="UPDATE!"
         android:textSize="24sp"
-
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.233"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etUbay"
-        app:layout_constraintVertical_bias="0.929" />
+        app:layout_constraintVertical_bias="0.555" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="292dp"
-        android:layout_height="153dp"
-        android:text="Current Flight Details"
+        android:layout_width="369dp"
+        android:layout_height="164dp"
+        android:lineSpacingExtra="4dp"
+        android:text="Please input flight number before updating flight entry"
         android:textColor="#EF9A9A"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSearch"
-        app:layout_constraintVertical_bias="0.055" />
+        app:layout_constraintVertical_bias="0.053" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
