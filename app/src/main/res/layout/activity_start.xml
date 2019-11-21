@@ -10,20 +10,22 @@
         android:id="@+id/textView4"
         android:layout_width="326dp"
         android:layout_height="62dp"
-        android:text="Input / Start"
+        android:layout_marginTop="24dp"
+        android:text="@android:string/search_go"
         android:textSize="36sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="45dp"
-        tools:layout_editor_absoluteY="153dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etFlightNo"
         android:layout_width="338dp"
         android:layout_height="80dp"
         android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
         android:ems="10"
-        android:hint="Flight Number (e.g. SQ825)"
+        android:hint="Flight Number (e.g. SQ11)"
         android:inputType="textPersonName"
         android:textSize="24sp"
         android:textStyle="bold"
@@ -32,19 +34,48 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.084" />
+        app:layout_constraintVertical_bias="0.034" />
 
     <Button
-        android:id="@+id/btnGeo"
-        android:layout_width="218dp"
-        android:layout_height="104dp"
-        android:text="RETRIEVE FLIGHT DETAILS"
+        android:id="@+id/btnsSearch"
+        android:layout_width="148dp"
+        android:layout_height="67dp"
+        android:text="@android:string/search_go"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFlightNo"
-        app:layout_constraintVertical_bias="0.277" />
+        app:layout_constraintVertical_bias="0.031" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="344dp"
+        android:layout_height="69dp"
+        android:text="Please search for the flight and confirm before accepting."
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnsSearch"
+        app:layout_constraintVertical_bias="0.063" />
+
+    <TextView
+        android:id="@+id/tvFinalBay"
+        android:layout_width="339dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="20dp"
+        android:text="Bay:"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.32"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.073" />
 </androidx.constraintlayout.widget.ConstraintLayout>
