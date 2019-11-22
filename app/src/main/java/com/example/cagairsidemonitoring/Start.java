@@ -26,6 +26,8 @@ public class Start extends AppCompatActivity {
 
     private TextView tvBayInfo;
 
+    private String bus;
+
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private CollectionReference flightRef = db.collection("FlightEntry");
 
@@ -59,14 +61,17 @@ public class Start extends AppCompatActivity {
                                     final String bay = flights.getBay();
                                     final String flight = flights.getFlightNo();
                                     final String documentId = documentSnapshot.getId();
+                                    final String role = "bus";
 
                                    // System.out.println(bay);
-
+                                    System.out.println(role);
                                     tvBayInfo.setText("Flight " + flight + "\nis at bay " + bay);
 
+                                    //passes variable to another activity
                                     Intent intent = new Intent(Start.this, GeoFencing.class);
                                     intent.putExtra("docId", documentId);
                                     intent.putExtra("bay", bay);
+                                    intent.putExtra("role", role);
                                     startActivity(intent);
                                 }
                             }
